@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>راديو الأصدقاء - تواصل صوتي مباشر</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- استيراد مكتبة PeerJS من الإنترنت (للإشارات والاتصال) -->
+  <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>🎙️ راديو الأصدقاء</h1>
+
+    <!-- قسم الاتصال -->
+    <div class="card connect-card">
+      <h2>📡 الاتصال بصديق</h2>
+      <div class="row">
+        <div class="col">
+          <label>اسمي:</label>
+          <input type="text" id="myId" placeholder="مثال: أحمد" value="أحمد" />
+        </div>
+        <div class="col">
+          <label>اسم الصديق:</label>
+          <input type="text" id="friendId" placeholder="مثال: محمد" value="محمد" />
+        </div>
+      </div>
+      <button id="connectBtn">🔗 اتصل بالصديق</button>
+      <button id="randomIdBtn" class="secondary">🎲 اسم عشوائي</button>
+      <div id="connectionStatus">الحالة: <span>غير متصل</span></div>
+    </div>
+
+    <!-- قسم التسجيل والإرسال -->
+    <div class="card record-card">
+      <h2>⏺️ تسجيل وإرسال الصوت</h2>
+      <button id="recordBtn">اضغط للتسجيل</button>
+      <span id="timer">00:00</span>
+      <div id="playbackArea">
+        <audio id="previewAudio" controls></audio>
+      </div>
+      <button id="sendBtn" disabled>📤 إرسال الصوت للصديق</button>
+    </div>
+
+    <!-- قسم الرسائل الصوتية (المستلمة والمرسلة) -->
+    <div class="card messages-card">
+      <h2>📋 صندوق الرسائل الصوتية</h2>
+      <div id="messagesList">
+        <p style="color:#999;">لا توجد رسائل بعد. اتصل بصديقك وأرسل له صوتًا.</p>
+      </div>
+    </div>
+
+    <div class="note">
+      <p>💡 <strong>كيف يعمل؟</strong></p>
+      <ol>
+        <li>أنت وصديقك تفتحان نفس الصفحة (على جهازيكن).</li>
+        <li>تختاران اسمين مختلفين (مثل: أحمد، محمد).</li>
+        <li>كل واحد يضغط <strong>اتصل بالصديق</strong> ويكتب اسم الآخر (أو أحدهما يكفي، لكن الأسهل أن تضغطا معًا).</li>
+        <li>بعد الاتصال، سجل صوتك واضغط <strong>إرسال الصوت للصديق</strong>، سيظهر فورًا في قائمة صديقك!</li>
+      </ol>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
